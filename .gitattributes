@@ -1,0 +1,8 @@
+meal_info.csv filter=lfs diff=lfs merge=lfs -text
+processed_test.csv filter=lfs diff=lfs merge=lfs -text
+processed_train.csv filter=lfs diff=lfs merge=lfs -text
+sample_submission.csv filter=lfs diff=lfs merge=lfs -text
+test.csv filter=lfs diff=lfs merge=lfs -text
+train.csv filter=lfs diff=lfs merge=lfs -text
+val_predictions.csv filter=lfs diff=lfs merge=lfs -text
+fulfilment_center_info.csv filter=lfs diff=lfs merge=lfs -text
