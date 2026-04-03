@@ -220,12 +220,14 @@ total_actual    = int(filtered["actual"].sum())
 total_surplus   = int(filtered["surplus"].sum())
 waste_pct       = (total_surplus / total_predicted * 100) if total_predicted > 0 else 0
 avg_mae         = float((filtered["predicted"] - filtered["actual"]).abs().mean())
+avg_surplus_per_center = total_surplus / max(len(selected_centers) * len(filtered["week"].unique()), 1)
 
 c1, c2, c3, c4, c5 = st.columns(5)
 c1.metric("Total Predicted Orders", f"{total_predicted:,}")
 c2.metric("Total Actual Orders",    f"{total_actual:,}")
 c3.metric("Estimated Surplus",      f"{total_surplus:,}", delta=f"{waste_pct:.1f}% of predicted", delta_color="inverse")
-c4.metric("Avg MAE / row",          f"{avg_mae:.1f}")
+# c4.metric("Avg MAE / row",          f"{avg_mae:.1f}")
+c4.metric("Avg surplus / center / week", f"{avg_surplus_per_center:.0f} orders")
 c5.metric("Centers shown",          f"{len(selected_centers)}")
 
 st.markdown("")
